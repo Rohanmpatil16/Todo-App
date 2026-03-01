@@ -1,0 +1,26 @@
+{
+  "name": "todo-list-project",
+  "version": "1.0.0",
+  "description": "node js project",
+  "main": "index.js",
+   "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rohanmpatil16/Todo-App.git"
+  },
+  "author": "rohan patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rohanmpatil16/Todo-App/issues"
+  },
+  "homepage": "https://github.com/Rohanmpatil16/Todo-App#readme",
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+    
+  }
+}
