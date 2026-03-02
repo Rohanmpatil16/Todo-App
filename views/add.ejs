@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Add Task</title>
 </head>
 <body>
+    <%- include('navbar') %>
     <h1>Add Task Page</h1>
+
+    <div class="container">
+        <form  class ="todo"method="post">
+            <input class="input" type="text" placeholder="Enter the Task Title" name="title">
+            <br><br>
+            <textarea class="input" name="desc" id=""></textarea>
+            <br><br>
+            <button class="input">Add Task</button>
+        </form>
+    </div>
 </body>
 </html>
