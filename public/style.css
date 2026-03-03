@@ -40,6 +40,8 @@ nav ul li a:hover{
 
 /* Form card */
 .todo {
+    justify-content: center;
+    align-items: center;
     background: white;
     padding: 30px;
     width: 100%;
@@ -71,6 +73,7 @@ nav ul li a:hover{
 textarea.input {
     resize: none;
     height: 100px;
+    resize:vertical;
 }
 
 /* Button style */

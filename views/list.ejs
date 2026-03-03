@@ -8,6 +8,22 @@
 </head>
 <body>
     <%- include('navbar') %>
-    <h1>Task List</h1>
+ 
+    <div >
+        <h1>Task List Page</h1>
+        <ul>
+            <% for(let task=0;task<result.length;task++){%>
+                
+            <li>
+                <div>
+                    <%= result[task].title%>
+                </div>
+                <div>
+                    <%= result[task].desc%>
+                </div>
+            </li>
+            <% } %>
+        </ul>
+    </div>
 </body>
 </html>
