@@ -9,17 +9,22 @@
 <body>
     <%- include('navbar') %>
  
-    <div >
-        <h1>Task List Page</h1>
-        <ul>
+    <div class="container">
+        
+        <ul class="item">
+            <h1>Task List Page</h1>
             <% for(let task=0;task<result.length;task++){%>
                 
-            <li>
-                <div>
+            <li class="task-list">
+                <div class="t1">
                     <%= result[task].title%>
                 </div>
-                <div>
+                <div class="t2">
                     <%= result[task].desc%>
+                </div>
+
+                <div class="delete">
+                    <a href="/delete/<%= result[task]._id %>">Delete</a>
                 </div>
             </li>
             <% } %>

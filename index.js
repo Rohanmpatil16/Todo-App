@@ -39,7 +39,7 @@ app.get('/update',(req,res)=>{
 app.post('/add',async(req,res)=>{
     const db=await connection();
     const collection=db.collection(collectionName);
-    const result=collection.insertOne(req.body)
+    const result=await collection.insertOne(req.body)
     if(result){
     res.redirect("/");
     }
@@ -47,6 +47,21 @@ app.post('/add',async(req,res)=>{
         res.redirect("/add");
     }
 })
+
+app.get('/delete/:id', async (req, res) => {
+    const db = await connection();
+    const collection = db.collection(collectionName);
+
+    const result = await collection.deleteOne({
+        _id: new mongodb.ObjectId(req.params.id)
+    });
+
+    if (result.deletedCount === 1) {
+        res.redirect("/");
+    } else {
+        res.send("Delete failed");
+    }
+});
 
 app.post('/update',(req,res)=>{
     res.redirect("/");
