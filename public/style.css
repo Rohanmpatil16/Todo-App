@@ -93,45 +93,81 @@ button.input:hover {
 
 
 
-.item{
-    list-style: none;
-
-    
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
 }
 
+/* container */
+.cont{
+    width: 60%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+/* title */
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* remove list dots */
+.item{
+    list-style: none;
+    padding: 0;
+}
+
+/* task card */
 .task-list{
     background-color: #ecf0f1;
     margin-bottom: 15px;
     padding: 15px;
-   
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-left: #667eea 5px solid;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-left: 5px solid #667eea;
 }
-.t1 {
+
+/* title */
+.t1{
     font-weight: bold;
     font-size: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
-.t2 {
+/* description */
+.t2{
     font-size: 14px;
-    margin-top: 5px;
     color: #555;
+    margin-bottom: 10px;
 }
 
-.delete {
-    margin-top: 10px;
+/* delete button */
+.delete{
     text-decoration: none;
-    color: white;
-    font-weight: bold;
     background-color: #e74c3c;
-    padding: 5px;
-    border: none;
+    color: white;
+    padding: 6px 10px;
     border-radius: 4px;
-    cursor: pointer;
-    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
 }
-.delete:hover {
+
+.delete:hover{
     background-color: #c0392b;
+}
+
+/* update button */
+.update{
+    text-decoration: none;
+    background-color: #2ecc71;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.update:hover{
+    background-color: #27ae60;
 }

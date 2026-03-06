@@ -63,9 +63,62 @@ app.get('/delete/:id', async (req, res) => {
     }
 });
 
-app.post('/update',(req,res)=>{
+app.get('/update/:id', async (req, res) => {
+    const db = await connection();
+    const collection = db.collection(collectionName);
+
+    const result = await collection.findOne({
+        _id: new mongodb.ObjectId(req.params.id)
+    });
+
+    if (result) {
+        res.render('update', { result });
+    } else {
+        res.send("Task not found");
+    }
+});
+    app.post('/update/:id', async (req, res) => {
+    const db = await connection();
+    const collection = db.collection(collectionName);
+
+    const filter = { _id: new mongodb.ObjectId(req.params.id) };
+
+    const updateDoc = {
+        $set: {
+            title: req.body.title,
+            desc: req.body.desc
+        }
+    };
+
+    const result = await collection.updateOne(filter, updateDoc);
+
+    if (result.modifiedCount === 1) {
+        res.redirect("/");
+    } else {
+        res.send("Update failed");
+    }
+});
+    
+
+app.post("/multi-delete", async (req, res) => {
+    const db = await connection();
+    const collection = db.collection(collectionName);
+
+    let selected = req.body.selected;
+
+    // convert to array if only one checkbox selected
+    if (!Array.isArray(selected)) {
+        selected = [selected];
+    }
+
+    const ids = selected.map(id => new mongodb.ObjectId(id));
+
+    const result = await collection.deleteMany({
+        _id: { $in: ids }
+    });
+
     res.redirect("/");
-})
+});
 app.listen(3003,()=>{
     console.log("server is running on port 3003");
 })

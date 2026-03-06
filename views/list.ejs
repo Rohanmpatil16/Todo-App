@@ -9,26 +9,38 @@
 <body>
     <%- include('navbar') %>
  
-    <div class="container">
+    <form action="/multi-delete" method="post">
+<div class="cont">
         
-        <ul class="item">
-            <h1>Task List Page</h1>
-            <% for(let task=0;task<result.length;task++){%>
-                
-            <li class="task-list">
-                <div class="t1">
-                    <%= result[task].title%>
-                </div>
-                <div class="t2">
-                    <%= result[task].desc%>
-                </div>
+<ul class="item">
 
-                <div class="delete">
-                    <a href="/delete/<%= result[task]._id %>">Delete</a>
-                </div>
-            </li>
-            <% } %>
-        </ul>
-    </div>
+<h1>Task List Page</h1>
+<button class="delete" style="margin-bottom:20px;">Delete Selected Items</button>
+
+<% for(let task=0;task<result.length;task++){ %>
+
+<li class="task-list">
+
+<div class="t1">
+<%= result[task].title %>
+</div>
+
+<div class="t2">
+<%= result[task].desc %>
+</div>
+
+<input type="checkbox" name="selected" value="<%= result[task]._id %>">
+
+<a class="delete" href="/delete/<%= result[task]._id %>">Delete</a>
+
+<a class="update" href="/update/<%= result[task]._id %>">Update</a>
+
+</li>
+
+<% } %>
+
+</ul>
+</div>
+</form>
 </body>
 </html>
